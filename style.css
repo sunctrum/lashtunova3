@@ -1,0 +1,101 @@
+ * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a2240; /* Фирменный темно-синий цвет ВТБ */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* 1. Анимация Логотипа */
+        .logo-container {
+            transform: translateX(-150vw); /* Старт далеко слева за экраном */
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .logo-container.animate {
+            transform: translateX(0); /* Центрирование */
+        }
+
+        .vtb-logo {
+            width: 180px;
+            height: auto;
+        }
+
+        /* 2. Анимация Строк Объявления */
+        .announcement {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .line {
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(20px); /* Появление снизу вверх из пустоты */
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .line.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3. Анимация Кнопки из точки */
+        .btn-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .buy-btn {
+            background-color: #00AAFF; /* Голубой цвет ВТБ */
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Эффект пружины */
+            
+            /* Исходное состояние: кнопка сжата в точку */
+            width: 0px;
+            height: 0px;
+            font-size: 0px;
+            opacity: 0;
+        }
+
+        .buy-btn.animate {
+            /* Финальное состояние */
+            width: 200px;
+            height: 55px;
+            font-size: 18px;
+            opacity: 1;
+        }
+
+        .buy-btn:hover {
+            background-color: #0088cc;
+            transform: scale(1.05);
+        }
